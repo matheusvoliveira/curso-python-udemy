@@ -24,6 +24,21 @@ class Conta:
         self.saldo = saldo
         self.limite = limite
 
+    def extrato(self): #metodo 
+        print(f'saldo {self.saldo} do titular {self.titular}')
+
+    def deposita(self, valor):
+        self.saldo += valor
+
+    def saca(self,valor):
+        self.saldo -= valor
+
 
 conta = Conta(123, 'Matheus', 1000, 2000)
-print(conta.limite)
+conta2 = Conta(786, 'Rodrigo', 500, 5000)
+
+conta.deposita(500)
+print(conta2.extrato())
+print(conta.extrato())
+conta.saca(100)
+print(conta.extrato())
