@@ -1,0 +1,54 @@
+# Em Python, "self" é uma convenção usada para se referir ao
+# objeto atual de uma classe. Em outras palavras, é uma referência ao próprio objeto.
+# uma classe abriga varios objetos
+
+class Conta:
+#__init__ é uma função construtora que aloca todos os atributos
+    def __init__(self, numero, titular, saldo, limite): # atributos
+        print('esta é a conta {} '.format(self))
+        self.__numero = numero
+        self.__titular = titular
+        self.__saldo = saldo
+        self.__limite = limite
+        self.method_count = 0
+
+    def extrato(self): #metodos todos que tem def
+        print(f'saldo {self.__saldo} do titular {self.__titular}')
+
+    def deposita(self, valor):
+        self.__saldo += valor
+        self.method_count += 1
+
+
+    def saca(self,valor):
+        self.__saldo -= valor
+        self.method_count += 1
+
+
+    def transferir(self, valor, destino):
+        self.saca(valor)
+        destino.deposita(valor)
+    # não inclui o method_count porque ele já é chamado no saca() então ele iria ser chamado duas vezes
+
+
+    def inadimplencia(self):
+        if self.__saldo <= 100:
+            print(f'{self.__titular } é inadimplente!')
+        else:
+            print(f'{self.__titular} não é inadimplente!')
+        return self.__saldo <= 100
+
+    def cartao_credito(self):
+        if self.method_count >= 2 and not self.inadimplencia():
+            print('Você esta elegivel para o cartão!')
+        else:
+            print('Movimente mais a sua conta e tente de novo!')
+
+conta = Conta(123, 'Matheus', 1000, 2000)
+conta2 = Conta(786, 'Rodrigo', 500, 5000)
+conta2.inadimplencia()
+conta2.cartao_credito()
+print(conta2.method_count)
+conta2.saca(10)
+print(conta2.method_count)
+conta2.cartao_credito()
