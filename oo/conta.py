@@ -44,11 +44,24 @@ class Conta:
         else:
             print('Movimente mais a sua conta e tente de novo!')
 
-conta = Conta(123, 'Matheus', 1000, 2000)
-conta2 = Conta(786, 'Rodrigo', 500, 5000)
-conta2.inadimplencia()
-conta2.cartao_credito()
-print(conta2.method_count)
-conta2.saca(10)
-print(conta2.method_count)
-conta2.cartao_credito()
+    def get_saldo(self):
+        return self.__saldo # get são metodos que recolhem um dado e o retornam como esse que retorna o saldo
+
+    def get_titular(self):
+        return self.__titular
+
+    def get_limite(self):
+        return self.__limite
+
+    def set_limite(self, novo_limite): #set são todos os metodos que mudam os dados, nesse caso ele redefine o limite
+        self.__limite = novo_limite
+
+
+# conta = Conta(123, 'Matheus', 1000, 2000)
+# conta2 = Conta(786, 'Rodrigo', 500, 5000)
+# conta2.inadimplencia()
+# conta2.cartao_credito()
+# print(conta2.method_count)
+# conta2.saca(10)
+# print(conta2.method_count)
+# conta2.cartao_credito()
