@@ -21,8 +21,11 @@ class Conta:
 
 
     def saca(self,valor):
-        self.__saldo -= valor
-        self.method_count += 1
+        if valor > self.__saldo:
+            print(f'O valor R${valor} deixa o saldo da sua conta negativo!')
+        else:
+            self.__saldo -= valor
+            self.method_count += 1
 
 
     def transferir(self, valor, destino):
@@ -53,9 +56,22 @@ class Conta:
     def get_limite(self):
         return self.__limite
 
-    def set_limite(self, novo_limite): #set são todos os metodos que mudam os dados, nesse caso ele redefine o limite
-        self.__limite = novo_limite
+    # def set_limite(self, novo_limite): #set são todos os metodos que mudam os dados, nesse caso ele redefine o limite
+    #     self.__limite = novo_limite
 
+    @property
+    def limite(self):
+        return self.__limite
+
+    @limite.setter
+    def limite(self, novo_limite):
+        self.__limite = novo_limite
+        return self.__limite
+
+
+    @staticmethod    #methodo da classe Conta não do objeto conta
+    def codigos_bancos():
+        return {'BB': '001', 'Caixa': '104', 'Bradesco': '237'}
 
 # conta = Conta(123, 'Matheus', 1000, 2000)
 # conta2 = Conta(786, 'Rodrigo', 500, 5000)
