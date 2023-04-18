@@ -19,13 +19,15 @@ class Conta:
         self.__saldo += valor
         self.method_count += 1
 
-
+    def __pode_sacar(self, valor):
+         if (valor - self.__saldo) <= 0:
+             return (valor - self.__saldo) <= 0
     def saca(self,valor):
-        if valor > self.__saldo:
-            print(f'O valor R${valor} deixa o saldo da sua conta negativo!')
-        else:
+        if self.__pode_sacar(valor):
             self.__saldo -= valor
             self.method_count += 1
+        else:
+            print(f'O valor R${valor} deixa o saldo da sua conta negativo!')
 
 
     def transferir(self, valor, destino):
