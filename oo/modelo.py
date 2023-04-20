@@ -7,7 +7,6 @@ class Filme:
     def dar_like(self):
         self.likes += 1
 
-
 class Serie:
     def __init__(self, nome, ano, temporada):
         self.nome = nome.title()
