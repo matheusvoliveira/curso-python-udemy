@@ -36,7 +36,12 @@ class Serie(Programa):
 
 
 vingadores = Filme('vingadores - guerra infinita', 2018, 160)
-print(vingadores.nome)
+# print(vingadores.nome)
 
 atlanta = Serie('atlanta', 2018, 2)
-print(f'Nome: {atlanta.nome} - Ano: {atlanta.ano}')
+# print(f'Nome: {atlanta.nome} - Ano: {atlanta.ano}')
+filmes_e_series = [vingadores, atlanta]
+
+for programa in filmes_e_series:
+    detalhes = programa.duracao if hasattr(programa, 'duracao') else programa.temporada
+    print(f'{programa.nome} - {detalhes} - {programa.likes}')
