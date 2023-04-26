@@ -45,13 +45,19 @@ class Playlist:
         self.nome = nome
         self.programas = programas
 
+    def tamanho(self):
+        return len(self.programas)
+
 vingadores = Filme('vingadores - guerra infinita', 2018, 160)
+tmep = Filme('Todo mundo em panico', 1999, 100)
+demolidor = Serie('Demolidor', 2016, 3)
 # print(vingadores.nome)
 vingadores.dar_likes()
 atlanta = Serie('atlanta', 2018, 2)
 atlanta.dar_likes()
 # print(f'Nome: {atlanta.nome} - Ano: {atlanta.ano}')
-filmes_e_series = [vingadores, atlanta]
+filmes_e_series = [vingadores, atlanta, tmep, demolidor]
 
-for programa in filmes_e_series:
-    programa.imprime()
+findis = Playlist('Findis', filmes_e_series)
+for programa in findis.programas:
+    print(programa)
