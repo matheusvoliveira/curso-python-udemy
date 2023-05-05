@@ -18,6 +18,7 @@ class Line:
 
 
 cordinate1 = (3,2)
+
 cordinate2 = (8,10)
 
 li = Line(cordinate1,cordinate2)
