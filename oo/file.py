@@ -14,7 +14,6 @@ def hello(name):
 
 hello('José')
 
-
 def new_decorator(original_func):
     def wrap_func():
         print('Some extra code, before the original function')
