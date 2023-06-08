@@ -11,8 +11,18 @@ print(soup)
 title = soup.select('title')
 paragraphs = soup.select('p')
 
-pdb.set_trace()
 
 res = requests.get('https://pt.wikipedia.org/wiki/Odd_Taxi')
 soup = bs4.BeautifulSoup(res.text, 'lxml')
 toc = soup.select('toctext')
+
+res = requests.get('https://pt.wikipedia.org/wiki/Edgars_Rink%C4%93vi%C4%8Ds')
+
+soup = bs4.BeautifulSoup(res.text,'lxml')
+img = soup.select('.floatnone')
+
+president = soup.select('.floatnone')[0]
+hrefa = president['href']
+
+
+pdb.set_trace()
