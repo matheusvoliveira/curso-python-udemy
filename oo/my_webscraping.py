@@ -22,7 +22,7 @@ soup = bs4.BeautifulSoup(res.text,'lxml')
 img = soup.select('.floatnone')
 
 president = soup.select('.floatnone')[0]
-hrefa = president['href']
+
 
 
 pdb.set_trace()
