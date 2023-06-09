@@ -36,6 +36,22 @@ results = re.search(phone_pattern, text)
 
 
 
+cat_dog = re.search('cat|dog','the cat is here')
+at = re.findall(f'...at', 'the cat in the hat sat there')
+
+signal_let = re.findall(r'\d', 'the number is 2')
+
+
+
+
+phrase = 'there are 3 numbers numbers 34 indide 5 this sentence'
+pattern = r'[^\d]'
+
+re.findall(pattern,phrase)
+
+
+
+
 
 
 
