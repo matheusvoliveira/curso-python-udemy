@@ -1,6 +1,7 @@
 import PyPDF4
 import pdb
 
+
 f = open('Working_Business_Proposal.pdf','rb')
 pdf_reader = PyPDF4.PdfFileReader(f)
 print(pdf_reader.numPages)
